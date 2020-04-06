@@ -1,7 +1,13 @@
 import React from "react";
+import Game from "./screens/Game";
+import "./styles.css";
 
-function App() {
-  return <>Watahakla</>;
-}
+const App = () => {
+  return (
+    <>
+      <Game />
+    </>
+  );
+};
 
 export default App;
