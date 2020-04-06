@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Drippit/static/css/main.5f361e03.chunk.css",
-    "main.js": "/Drippit/static/js/main.1a778053.chunk.js",
-    "main.js.map": "/Drippit/static/js/main.1a778053.chunk.js.map",
+    "main.js": "/Drippit/static/js/main.026ec784.chunk.js",
+    "main.js.map": "/Drippit/static/js/main.026ec784.chunk.js.map",
     "runtime-main.js": "/Drippit/static/js/runtime-main.54a972f6.js",
     "runtime-main.js.map": "/Drippit/static/js/runtime-main.54a972f6.js.map",
     "static/js/2.47beea69.chunk.js": "/Drippit/static/js/2.47beea69.chunk.js",
     "static/js/2.47beea69.chunk.js.map": "/Drippit/static/js/2.47beea69.chunk.js.map",
     "index.html": "/Drippit/index.html",
-    "precache-manifest.ec121fd2c98978175eb12041a59abad1.js": "/Drippit/precache-manifest.ec121fd2c98978175eb12041a59abad1.js",
+    "precache-manifest.c1c48c7cf96e7f9fa651fe62a0c540f1.js": "/Drippit/precache-manifest.c1c48c7cf96e7f9fa651fe62a0c540f1.js",
     "service-worker.js": "/Drippit/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/Drippit/static/css/main.5f361e03.chunk.css.map",
     "static/js/2.47beea69.chunk.js.LICENSE.txt": "/Drippit/static/js/2.47beea69.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.54a972f6.js",
     "static/js/2.47beea69.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.1a778053.chunk.js"
+    "static/js/main.026ec784.chunk.js"
   ]
 }
