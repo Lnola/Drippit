@@ -70,17 +70,23 @@ class Game extends Component {
     if (!isDropClicked) return null;
 
     return (
-      <Flex>
-        {tubes.map((tube, index) => (
-          <Tube
-            key={index}
-            drops={tube}
-            tubeIndex={index}
-            isDropClicked={isDropClicked[index]}
-            indexInNewArray={indexInNewArray}
-            handleDropClick={this.onDropClick}
-          />
-        ))}
+      <Flex direction="column">
+        <h1>
+          Drippit
+          <span />
+        </h1>
+        <Flex>
+          {tubes.map((tube, index) => (
+            <Tube
+              key={index}
+              drops={tube}
+              tubeIndex={index}
+              isDropClicked={isDropClicked[index]}
+              indexInNewArray={indexInNewArray}
+              handleDropClick={this.onDropClick}
+            />
+          ))}
+        </Flex>
       </Flex>
     );
   }

@@ -9,9 +9,9 @@ const Container = styled.span`
   height: 247px;
   margin: 20px;
   padding-bottom: 5px;
-  border: 2px solid black;
+  border: 2px solid #040404;
   border-top: none;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 30px 30px;
   box-sizing: border-box;
 `;
 
