@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  return <>Simple test</>;
+  return <>Simple maybeee</>;
 }
 
 export default App;
