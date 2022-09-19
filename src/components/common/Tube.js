@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Drop from '../components/styled/Drop';
+import Drop from '../styled/Drop';
 import styled from 'styled-components';
 
 const Container = styled.span`
@@ -29,24 +29,22 @@ class Tube extends Component {
     const { drops, isDropClicked, indexInNewArray } = this.props;
 
     return (
-      <span>
-        <Container onClick={this.handleDropClick}>
-          {drops.map((drop, index) => (
-            <span key={index} className='drop-span'>
-              {index === drops.length - 1 ? (
-                <Drop
-                  color={drop}
-                  index={4 - index}
-                  isDropClicked={isDropClicked}
-                  indexInNewArray={5 - indexInNewArray}
-                />
-              ) : (
-                <Drop color={drop} index={index} />
-              )}
-            </span>
-          ))}
-        </Container>
-      </span>
+      <Container onClick={this.handleDropClick}>
+        {drops.map((drop, index) => (
+          <span key={index} className='drop-span'>
+            {index === drops.length - 1 ? (
+              <Drop
+                color={drop}
+                index={4 - index}
+                isDropClicked={isDropClicked}
+                indexInNewArray={5 - indexInNewArray}
+              />
+            ) : (
+              <Drop color={drop} index={index} />
+            )}
+          </span>
+        ))}
+      </Container>
     );
   }
 }

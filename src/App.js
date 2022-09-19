@@ -1,5 +1,5 @@
 import React from 'react';
-import Game from './screens/Game';
+import Game from './screen';
 import './styles.css';
 
 const App = () => {

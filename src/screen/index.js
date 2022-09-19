@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Flex from '../components/styled/Flex';
-import Tube from './Tube';
+import Tube from '../components/common/Tube';
 import tubeSetup from '../utils/tubeSetup';
-import { didPlayerWin } from '../utils/win';
+import didPlayerWin from '../utils/win';
 
 class Game extends Component {
   constructor(props) {
