@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import Drop from '../styled/Drop';
-import { default as DrippTube } from '../styled/Tube';
+import { Drop, Tube as DRTube } from 'components/styled';
 
 class Tube extends Component {
   render() {
     const { drops, isDropClicked, indexInNewArray } = this.props;
 
     return (
-      <DrippTube>
+      <DRTube>
         {drops.map((drop, index) => (
           <Drop
             key={index}
@@ -17,7 +16,7 @@ class Tube extends Component {
             indexInNewArray={4 - indexInNewArray}
           />
         ))}
-      </DrippTube>
+      </DRTube>
     );
   }
 }

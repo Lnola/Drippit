@@ -1,6 +1,6 @@
 import React from 'react';
-import Game from './screen';
-import './styles.css';
+import Game from 'screens';
+import 'styles.css';
 
 const App = () => {
   return <Game />;

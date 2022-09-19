@@ -1,5 +1,5 @@
 import shuffle from 'shuffle-array';
-import colors from '../constants/colors';
+import colors from 'constants/colors';
 
 const tubeSetup = (numberOfTubes) => {
   const randomColors = shuffle(colors).slice(0, numberOfTubes);
