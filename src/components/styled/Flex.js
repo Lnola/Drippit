@@ -1,23 +1,23 @@
-import styled, { css } from "styled-components";
+import styled from 'styled-components';
 
-const getAlignValue = value => {
+const getAlignValue = (value) => {
   switch (value) {
-    case "start":
-      return "flex-start";
-    case "end":
-      return "flex-end";
-    case "center":
-      return "center";
-    case "space-between":
-      return "space-between";
-    case "space-around":
-      return "space-around";
+    case 'start':
+      return 'flex-start';
+    case 'end':
+      return 'flex-end';
+    case 'center':
+      return 'center';
+    case 'space-between':
+      return 'space-between';
+    case 'space-around':
+      return 'space-around';
     default:
       return null;
   }
 };
 
-export const flex = css`
+export const Flex = styled.div`
   display: flex;
   ${({ direction }) => direction && `flex-direction: ${direction};`}
   ${({ justifyContent }) =>
@@ -32,26 +32,6 @@ export const flex = css`
   ${({ position }) => position && `position: ${position};`}
   ${({ width }) => width && `width: ${width};`}
   ${({ height }) => height && `height: ${height};`}
-`;
-
-const Flex = styled.div`
-  ${flex}
-`;
-
-export const FlexMain = styled.main`
-  ${flex}
-`;
-
-export const FlexAnchor = styled.a`
-  ${flex}
-`;
-
-export const FlexArticle = styled.article`
-  ${flex}
-`;
-
-export const FlexSection = styled.section`
-  ${flex}
 `;
 
 export default Flex;
