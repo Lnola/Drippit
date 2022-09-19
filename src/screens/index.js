@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Flex } from 'components/styled';
-import { Tube } from 'components/common';
+import { Tube, Heading } from 'components/common';
 import { tubeSetup, didPlayerWin } from 'utils';
 
 class Game extends Component {
@@ -65,10 +65,7 @@ class Game extends Component {
 
     return (
       <Flex direction='column'>
-        <h1>
-          Drippit
-          <span />
-        </h1>
+        <Heading />
         <Flex>
           {tubes.map((tube, index) => (
             <span key={index} onClick={() => this.onDropClick(index)}>
