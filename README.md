@@ -1,6 +1,8 @@
-## About
+# Drippit
 
 Simple PWA game created with the intention of learning github pages deployment.
+
+## About
 
 You can see the live app running [here](https://lnola.github.io/Drippit/).
 
