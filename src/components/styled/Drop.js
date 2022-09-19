@@ -22,10 +22,10 @@ const bounce = (index) => css`
     }
     40% {
       top: 12px;
-      height: 52px;
+      height: 42px;
     }
     70% {
-      top: -22px;
+      top: -5px;
     }
     100% {
       top: 0px;
