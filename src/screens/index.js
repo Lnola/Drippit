@@ -21,6 +21,17 @@ class Game extends Component {
     });
   }
 
+  toggleIsTubeClicked = (index) => {
+    const { isTubeClicked } = this.state;
+    isTubeClicked[index] = !isTubeClicked[index];
+  };
+
+  reset = () => {
+    setTimeout(() => {
+      this.setState({ tubes: initTubes(this.state.numberOfTubes) });
+    }, 500);
+  };
+
   onTubeClick = (tubeIndex) => {
     let { isTubeClicked, tubes } = this.state;
     let indexOfPreviousClicked = isTubeClicked.indexOf(true);
@@ -29,8 +40,8 @@ class Game extends Component {
     const lastDrop = clickedTube[clickedTube.length - 1];
     const previousTube = tubes[indexOfPreviousClicked];
 
-    const isTheSameTubeClicked = tubeIndex === indexOfPreviousClicked;
     const isAnyTubeClicked = indexOfPreviousClicked !== -1;
+    const isTheSameTubeClicked = tubeIndex === indexOfPreviousClicked;
     const isTubeFull = clickedTube.length === 4;
     const isClickedTubeEmpty = lastDrop === undefined;
     const doTheColorsMatch = isAnyTubeClicked
@@ -38,22 +49,17 @@ class Game extends Component {
       : false;
 
     if (
+      isAnyTubeClicked &&
       !isTheSameTubeClicked &&
       !isTubeFull &&
-      (doTheColorsMatch || isClickedTubeEmpty)
+      (isClickedTubeEmpty || doTheColorsMatch)
     ) {
       clickedTube.push(previousTube.pop());
-
-      if (didPlayerWin(tubes)) {
-        setTimeout(() => {
-          this.setState({ tubes: initTubes(this.state.numberOfTubes) });
-        }, 500);
-      }
-    } else isTubeClicked[tubeIndex] = !isTubeClicked[tubeIndex];
+      if (didPlayerWin(tubes)) this.reset();
+    } else this.toggleIsTubeClicked(tubeIndex);
 
     if (isAnyTubeClicked && !isTheSameTubeClicked)
-      isTubeClicked[indexOfPreviousClicked] =
-        !isTubeClicked[indexOfPreviousClicked];
+      this.toggleIsTubeClicked(indexOfPreviousClicked);
 
     this.setState({ indexInNewArray: clickedTube.length });
     this.setState({ isTubeClicked });
