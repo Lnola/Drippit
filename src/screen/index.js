@@ -26,8 +26,6 @@ class Game extends Component {
     let { isDropClicked, tubes } = this.state;
     let indexOfPreviousClicked = isDropClicked.indexOf(true);
 
-    //CONDITIONS
-
     const isTheSameTubeClicked = tubeIndex === indexOfPreviousClicked;
     const isAnyTubeClicked = indexOfPreviousClicked !== -1;
     const isTubeFull = tubes[tubeIndex].length === 4;
@@ -37,8 +35,6 @@ class Game extends Component {
       ? tubes[tubeIndex][tubes[tubeIndex].length - 1] ===
         tubes[indexOfPreviousClicked][tubes[indexOfPreviousClicked].length - 1]
       : false;
-
-    //CONDITIONS
 
     if (
       !isTheSameTubeClicked &&
@@ -76,14 +72,13 @@ class Game extends Component {
         </h1>
         <Flex>
           {tubes.map((tube, index) => (
-            <Tube
-              key={index}
-              drops={tube}
-              tubeIndex={index}
-              isDropClicked={isDropClicked[index]}
-              indexInNewArray={indexInNewArray}
-              handleDropClick={this.onDropClick}
-            />
+            <span key={index} onClick={() => this.onDropClick(index)}>
+              <Tube
+                drops={tube}
+                isDropClicked={isDropClicked[index]}
+                indexInNewArray={indexInNewArray}
+              />
+            </span>
           ))}
         </Flex>
       </Flex>
