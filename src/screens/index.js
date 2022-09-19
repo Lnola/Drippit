@@ -9,7 +9,7 @@ class Game extends Component {
     this.state = {
       tubes: [],
       numberOfTubes: 4,
-      isDropClicked: null,
+      isTubeClicked: null,
       indexInNewArray: null,
     };
   }
@@ -17,61 +17,62 @@ class Game extends Component {
   componentDidMount() {
     this.setState({
       tubes: initTubes(this.state.numberOfTubes),
-      isDropClicked: new Array(this.state.numberOfTubes).fill(false),
+      isTubeClicked: new Array(this.state.numberOfTubes).fill(false),
     });
   }
 
-  onDropClick = (tubeIndex) => {
-    let { isDropClicked, tubes } = this.state;
-    let indexOfPreviousClicked = isDropClicked.indexOf(true);
+  onTubeClick = (tubeIndex) => {
+    let { isTubeClicked, tubes } = this.state;
+    let indexOfPreviousClicked = isTubeClicked.indexOf(true);
+
+    const clickedTube = tubes[tubeIndex];
+    const lastDrop = clickedTube[clickedTube.length - 1];
+    const previousTube = tubes[indexOfPreviousClicked];
 
     const isTheSameTubeClicked = tubeIndex === indexOfPreviousClicked;
     const isAnyTubeClicked = indexOfPreviousClicked !== -1;
-    const isTubeFull = tubes[tubeIndex].length === 4;
-    const isClickedTubeEmpty =
-      tubes[tubeIndex][tubes[tubeIndex].length - 1] === undefined;
+    const isTubeFull = clickedTube.length === 4;
+    const isClickedTubeEmpty = lastDrop === undefined;
     const doTheColorsMatch = isAnyTubeClicked
-      ? tubes[tubeIndex][tubes[tubeIndex].length - 1] ===
-        tubes[indexOfPreviousClicked][tubes[indexOfPreviousClicked].length - 1]
+      ? lastDrop === previousTube[previousTube.length - 1]
       : false;
 
     if (
       !isTheSameTubeClicked &&
-      isAnyTubeClicked &&
       !isTubeFull &&
       (doTheColorsMatch || isClickedTubeEmpty)
     ) {
-      tubes[tubeIndex].push(tubes[indexOfPreviousClicked].pop());
+      clickedTube.push(previousTube.pop());
 
       if (didPlayerWin(tubes)) {
         setTimeout(() => {
           this.setState({ tubes: initTubes(this.state.numberOfTubes) });
         }, 500);
       }
-    } else isDropClicked[tubeIndex] = !isDropClicked[tubeIndex];
+    } else isTubeClicked[tubeIndex] = !isTubeClicked[tubeIndex];
 
     if (isAnyTubeClicked && !isTheSameTubeClicked)
-      isDropClicked[indexOfPreviousClicked] =
-        !isDropClicked[indexOfPreviousClicked];
+      isTubeClicked[indexOfPreviousClicked] =
+        !isTubeClicked[indexOfPreviousClicked];
 
-    this.setState({ indexInNewArray: tubes[tubeIndex].length });
-    this.setState({ isDropClicked });
+    this.setState({ indexInNewArray: clickedTube.length });
+    this.setState({ isTubeClicked });
   };
 
   render() {
-    const { tubes, isDropClicked, indexInNewArray } = this.state;
+    const { tubes, isTubeClicked, indexInNewArray } = this.state;
 
-    if (!isDropClicked) return null;
+    if (!isTubeClicked) return null;
 
     return (
       <Flex direction='column'>
         <Heading />
         <Flex>
           {tubes.map((tube, index) => (
-            <span key={index} onClick={() => this.onDropClick(index)}>
+            <span key={index} onClick={() => this.onTubeClick(index)}>
               <Tube
                 drops={tube}
-                isDropClicked={isDropClicked[index]}
+                isClicked={isTubeClicked[index]}
                 indexInNewArray={indexInNewArray}
               />
             </span>

@@ -3,7 +3,7 @@ import { Drop, Tube as DRTube } from 'components/styled';
 
 class Tube extends Component {
   render() {
-    const { drops, isDropClicked, indexInNewArray } = this.props;
+    const { drops, isClicked, indexInNewArray } = this.props;
 
     return (
       <DRTube>
@@ -12,7 +12,7 @@ class Tube extends Component {
             key={index}
             color={drop}
             index={4 - index}
-            isDropClicked={index === drops.length - 1 && isDropClicked}
+            isDropClicked={index === drops.length - 1 && isClicked}
             indexInNewArray={4 - indexInNewArray}
           />
         ))}
