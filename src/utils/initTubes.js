@@ -1,7 +1,7 @@
 import shuffle from 'shuffle-array';
 import colors from 'constants/colors';
 
-const tubeSetup = (numberOfTubes) => {
+const initTubes = (numberOfTubes) => {
   const randomColors = shuffle(colors).slice(0, numberOfTubes);
   let sameColorTubes = [];
   let tubes = [];
@@ -19,4 +19,4 @@ const tubeSetup = (numberOfTubes) => {
   return tubes;
 };
 
-export default tubeSetup;
+export default initTubes;

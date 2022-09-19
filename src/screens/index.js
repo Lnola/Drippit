@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Flex } from 'components/styled';
 import { Tube, Heading } from 'components/common';
-import { tubeSetup, didPlayerWin } from 'utils';
+import { initTubes, didPlayerWin } from 'utils';
 
 class Game extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Game extends Component {
 
   componentDidMount() {
     this.setState({
-      tubes: tubeSetup(this.state.numberOfTubes),
+      tubes: initTubes(this.state.numberOfTubes),
       isDropClicked: new Array(this.state.numberOfTubes).fill(false),
     });
   }
@@ -45,7 +45,7 @@ class Game extends Component {
 
       if (didPlayerWin(tubes)) {
         setTimeout(() => {
-          this.setState({ tubes: tubeSetup(this.state.numberOfTubes) });
+          this.setState({ tubes: initTubes(this.state.numberOfTubes) });
         }, 500);
       }
     } else isDropClicked[tubeIndex] = !isDropClicked[tubeIndex];
