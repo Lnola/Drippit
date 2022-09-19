@@ -35,7 +35,7 @@ const bounce = (index) => css`
 `;
 
 const Drop = styled.span`
-  position: absolute;
+  position: relative;
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -46,4 +46,5 @@ const Drop = styled.span`
   ${({ isDropClicked, index, indexInNewArray }) =>
     isDropClicked ? rise(index) : bounce(indexInNewArray)};
 `;
+
 export default Drop;

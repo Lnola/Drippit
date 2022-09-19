@@ -70,9 +70,3 @@ h1 > span {
   justify-content: center;
   align-items: center;
 }
-
-.drop-span {
-  position: relative;
-  display: inline-block;
-  height: 60px;
-}
