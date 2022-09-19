@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import Flex from "../../components/styled/Flex";
-import Tube from "./Tube";
-import { tubesSetup } from "../../utils/TubesSetup";
-import { didPlayerWin } from "../../utils/DidPlayerWin";
+import React, { Component } from 'react';
+import Flex from '../components/styled/Flex';
+import Tube from './Tube';
+import tubeSetup from '../utils/tubeSetup';
+import { didPlayerWin } from '../utils/win';
 
 class Game extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Game extends Component {
 
   componentDidMount() {
     this.setState({
-      tubes: tubesSetup(this.state.numberOfTubes),
+      tubes: tubeSetup(this.state.numberOfTubes),
       isDropClicked: new Array(this.state.numberOfTubes).fill(false),
     });
   }
@@ -50,15 +50,14 @@ class Game extends Component {
 
       if (didPlayerWin(tubes)) {
         setTimeout(() => {
-          this.setState({ tubes: tubesSetup(this.state.numberOfTubes) });
+          this.setState({ tubes: tubeSetup(this.state.numberOfTubes) });
         }, 500);
       }
     } else isDropClicked[tubeIndex] = !isDropClicked[tubeIndex];
 
     if (isAnyTubeClicked && !isTheSameTubeClicked)
-      isDropClicked[indexOfPreviousClicked] = !isDropClicked[
-        indexOfPreviousClicked
-      ];
+      isDropClicked[indexOfPreviousClicked] =
+        !isDropClicked[indexOfPreviousClicked];
 
     this.setState({ indexInNewArray: tubes[tubeIndex].length });
     this.setState({ isDropClicked });
@@ -70,7 +69,7 @@ class Game extends Component {
     if (!isDropClicked) return null;
 
     return (
-      <Flex direction="column">
+      <Flex direction='column'>
         <h1>
           Drippit
           <span />

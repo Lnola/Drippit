@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Drop from "../../components/styled/Drop";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import Drop from '../components/styled/Drop';
+import styled from 'styled-components';
 
 const Container = styled.span`
   display: flex;
@@ -32,7 +32,7 @@ class Tube extends Component {
       <span>
         <Container onClick={this.handleDropClick}>
           {drops.map((drop, index) => (
-            <span key={index} className="drop-span">
+            <span key={index} className='drop-span'>
               {index === drops.length - 1 ? (
                 <Drop
                   color={drop}
